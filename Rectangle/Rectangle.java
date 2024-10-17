@@ -2,6 +2,7 @@ import greenfoot.*;
 public class Rectangle extends Actor{
   private int width;
   private int height;
+  Rectangle partner;
  
   public Rectangle(int w, int h){
     width = w;
@@ -16,9 +17,9 @@ public class Rectangle extends Actor{
   }
  
   public Rectangle(){
-    width = 10;
-    height = 10;
-    getImage().scale(width*10, height*10);
+    partner = new Rectangle(10,10);
+    System.out.println("Width:"+width+"Height"+height+"Partner"+partner);
+    //getImage().scale(width*10, height*10);
   }
  
   public static void main(String[] args){
@@ -27,7 +28,22 @@ public class Rectangle extends Actor{
     rect1 = new Rectangle(12,10);
     System.out.println(rect1);
   }
+  
   public String toString(){
         return "Rectangle " +System.identityHashCode(this)+" width "+width+" height " + height;
-    }
+  }
+  
+  public int getArea(){
+      int area = width * height;
+      return area;
+  }
+  
+  public void printArea(){
+      int area = width * height;
+      System.out.println(area);
+  }
+
+  public void setHeight(int h){
+      height = h;
+  }
 }
